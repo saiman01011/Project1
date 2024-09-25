@@ -1,0 +1,61 @@
+
+#include <iostream>
+#include<vector>
+
+void startMap(bool(&map)[16][16],int &namber){
+    for (int i = 0;i <16;i++) {
+        for (int q = 0; q < 16; q++) {
+            if (/*rand() % 5== 1*/ true) {
+                map[i][q] = true;
+                namber++;
+            }
+            else {
+                map[i][q] = false;
+            }
+        }
+    }
+}
+void startMap(bool(&map)[16][16], int x, int y) {
+    x--;
+    y--;
+    for (int l = 0;l <3;l++) {
+        for (int i = 0; i < 3; i++) {
+            if (((x > -1) && (x < 9)) && ((y > -1) && (y < 9))) {
+                map[x][y]= false;
+            }
+            x++;
+        }
+        y++;
+        x -= 3;
+    }
+}
+
+
+int main()
+{
+    using namespace std;
+    int x , y,namber_tnt=0;
+    bool map[16][16] = { {0} };
+    int mapIn[16][16] = { {0} };
+    vector <int> qwel;
+    cin  >>x>>y;
+    startMap(map, namber_tnt);
+    startMap(map, x, y);
+    //началась игра ..........................
+    for (; map[x][y] == false;) {
+
+    }
+    
+    for (int i = 0; i < 16; i++) {
+        for (int q = 0; q < 16; q++) {
+            if (map[i][q] == true) {
+                cout << "1 ";
+            }
+            else {
+                cout << "0 ";
+            }
+        }
+        cout << endl;
+    }
+    
+}
